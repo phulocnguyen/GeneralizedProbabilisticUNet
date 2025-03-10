@@ -47,3 +47,16 @@ MANIFEST
 
 # Per-project virtualenvs
 .venv*/
+GProbUnet
+
+# Dataset Pickle format
+*.pkl
+*.pickle
+dataset
+
+# Documentation
+docs
+
+# Cache
+*.pyc
+*__pycache__

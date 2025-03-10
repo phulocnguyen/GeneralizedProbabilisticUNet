@@ -4,23 +4,25 @@ Script for misc. functions that are shared
 
 """
 import os
-import shutil
 from distutils.dir_util import copy_tree
 import numpy as np
 import torch
-from segmentation_metrics.metrics import *
+from scripts.metrics import *
 import SimpleITK as sitk
-import pandas as pd
-import joblib
 import torch.nn as nn
 import sys
 sys.path.append(os.path.join(os.getcwd(), 'analysis'))
-from analysis_utils import *
+from scripts.analysis_utils import *
 import scipy
 from torch.distributions.kl import kl_divergence
-from torch.distributions import Normal, Independent, kl, LowRankMultivariateNormal, Categorical, MixtureSameFamily
+from torch.distributions import Normal, Independent, LowRankMultivariateNormal, Categorical, MixtureSameFamily
 
 EPS = 1e-6
+
+import torch
+
+
+
 
 def clean_up_ray_trials(exp_dir=None,
                         best_trial_dir=None,
@@ -164,7 +166,7 @@ def compute_dice_score(seg=None, gt=None):
     if seg.dtype != np.uint8:
         seg = np.where(seg>0.5, 1, 0).astype(np.uint8)
 
-    return dice_score(gt=gt, seg=seg)
+    return dice_score(gt, seg)
 
 
 # pdist and compute_ged_metric are taken from

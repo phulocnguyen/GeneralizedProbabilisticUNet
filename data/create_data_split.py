@@ -9,14 +9,13 @@ and save each set as a dictionary
 """
 
 SEED=1234
-DATA_DIR = '/home/ishaan/paper2/LIDC'
+DATA_DIR = '/Users/phulocnguyen/Documents/Workspace/GeneralizedProbabilisticUNet/dataset'
 TRAIN_FRAC = 0.6
 
 import random
 import joblib
 import os
 from math import floor
-
 
 def construct_data_dict(patient_ids, key_constructor_dict,full_data_dict):
 

@@ -10,19 +10,16 @@ from torch.utils.data import DataLoader, ConcatDataset, SubsetRandomSampler
 import torch.nn as nn
 import torch.nn.functional as F
 import shutil
-from utils.utils import *
 from probabilistic_unet.model import ProbabilisticUnet
 from probabilistic_unet.unet import Unet
-from qubic_datasets.dataset import QubicDataset, QubicPancreas
-from wmh_dataset.dataset import WMHDataset
 from argparse import ArgumentParser
 import sys
-from lidc_dataset.dataset import LIDC
+from data.dataset import LIDC
 from random import sample, shuffle
 import pickle
 import pandas as pd
 import os
-from segmentation_metrics.metrics import dice_score
+from metrics import dice_score
 from skimage.transform import resize
 import SimpleITK as sitk
 import joblib

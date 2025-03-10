@@ -16,7 +16,7 @@ from src.earlystopping import EarlyStopping
 import os
 from math import floor, isnan
 import joblib
-from helper_functions import *
+from scripts.helper_functions import *
 import numpy as np
 from ray import tune
 from ray.tune.schedulers import ASHAScheduler
@@ -553,7 +553,6 @@ if __name__ == '__main__':
         # DEBUG
         train(config=config,
               checkpoint_dir=os.path.join(local_dir, 'best_trial'),
-              dataset=args.dataset,
               train_data_dir=args.train_data_dir,
               batch_size=args.batch_size,
               mc_dropout=args.mc_dropout,
